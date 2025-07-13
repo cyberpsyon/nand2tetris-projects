@@ -49,7 +49,7 @@ CHIP CPU {
 	
 	And(a=instruction[3], b=Cinst, out=writeM);
 	
-	Not(in=zero, out=notzero)
+	Not(in=zero, out=notzero);
 	Not(in=negative, out=notnegative);
 	And(a=notzero, b=notnegative, out=positive);
 	And(a=instruction[2], b=negative, out=jnegative);
