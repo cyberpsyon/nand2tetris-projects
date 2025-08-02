@@ -24,8 +24,9 @@ def main():
         vm_files = get_vm_files(input_path)
         if not vm_files:
             raise ValueError("No .vm files in the directory.")
-        base = os.path.basename(os.path.normpath(input_path))
-        file_out_path = os.path.join(input_path, base + ".asm")
+        abs_path = os.path.abspath(input_path)
+        base = os.path.basename(abs_path)
+        file_out_path = os.path.join(abs_path, base + ".asm")
     else:
         raise FileNotFoundError("Provided path is not valid.")
 
