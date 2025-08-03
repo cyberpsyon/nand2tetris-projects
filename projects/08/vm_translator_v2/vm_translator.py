@@ -31,7 +31,10 @@ def main():
         raise FileNotFoundError("Provided path is not valid.")
 
     writer = CodeWriter(file_out_path)
-    writer.write_init()
+    
+    # Corrected conditional bootstrap call
+    if any("Sys.vm" in f for f in vm_files):
+        writer.write_init()
 
     for vm_file in vm_files:
         writer.set_file_name(vm_file)
